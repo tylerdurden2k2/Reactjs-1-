@@ -29,7 +29,7 @@ class ShowHide extends React.Component {
                             arrJobs.length > 0 &&
                             arrJobs.map((item) => {
                                 return (
-                                    <li key={item.id}>
+                                    <div key={item.id}>
                                         {`${item.title}    ${item.salary}`}
                                         <>{"    "}</>
                                         <button
@@ -39,7 +39,7 @@ class ShowHide extends React.Component {
                                         >
                                             X
                                         </button>
-                                    </li>
+                                    </div>
                                 );
                             })}
 

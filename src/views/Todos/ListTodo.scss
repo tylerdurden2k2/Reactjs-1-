@@ -1,0 +1,47 @@
+.list-todo-container {
+    .add-todo {
+        width: 400px;
+        margin: 10px auto;
+        display: flex;
+        input {
+            flex-grow: 1;
+            padding: 5px 10px;
+            border: none;
+            outline: none;
+        }
+        .btn-add {
+            padding: 5px 16px;
+            cursor: pointer;
+            outline: none;
+            border: none;
+            margin-left: 5px;
+            color: white;
+            background-color: rgb(13, 159, 30);
+        }
+    }
+    .list-todo-content {
+        .todo-item {
+            width: 400px;
+            margin: 5px auto;
+            padding: 5px;
+            border-bottom: 1px solid grey;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            button {
+                padding: 5px 16px;
+                cursor: pointer;
+                outline: none;
+                border: none;
+                margin-left: 5px;
+                color: white;
+            }
+            .btn-delete {
+                background-color: rgba(219, 40, 40, 0.752);
+            }
+            .btn-edit {
+                background-color: rgba(45, 91, 208, 0.916);
+            }
+        }
+    }
+}
