@@ -1,10 +1,50 @@
 import React from "react";
-import { withRouter } from "react-router";
+import { connect } from "react-redux";
 
 class Home extends React.Component {
+    handleDeleteUser = (user) => {
+        this.props.deleteUser(user);
+    };
+    handleAddUser = () => {
+        this.props.addUser();
+    };
     render() {
-        console.log("check props Home: ", this.props);
-        return <h1>Hello Home Page</h1>;
+        let listUser = this.props.dataRedux;
+        return (
+            <>
+                <h1>Hello Home Page</h1>
+                {listUser &&
+                    listUser.length > 0 &&
+                    listUser.map((item, index) => {
+                        return (
+                            <div key={item.id}>
+                                {`${index + 1} - ${item.name}`}
+                                <span
+                                    onClick={() => this.handleDeleteUser(item)}
+                                >
+                                    &nbsp; X
+                                </span>
+                            </div>
+                        );
+                    })}
+                <div>
+                    <button onClick={() => this.handleAddUser()}>Add</button>
+                </div>
+            </>
+        );
     }
 }
-export default withRouter(Home);
+
+const mapStateToProps = (state) => {
+    return {
+        dataRedux: state.listUser,
+    };
+};
+const mapDispatchToProps = (dispatch) => {
+    return {
+        deleteUser: (userDelete) =>
+            dispatch({ type: "DELETE_USER", payload: userDelete }),
+        addUser: () => dispatch({ type: "ADD_USER" }),
+    };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

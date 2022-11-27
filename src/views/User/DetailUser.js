@@ -37,7 +37,7 @@ class DetailUser extends React.Component {
                             </div>
                             <div>User's email: {user.email}</div>
                             <div>
-                                <img src={user.avatar}></img>
+                                <img src={user.avatar} alt="hinh anh"></img>
                             </div>
                         </div>
                     </>
